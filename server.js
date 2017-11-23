@@ -71,7 +71,9 @@ request.post('https://api.messagemedia.com/v1/messages', {
   if (response.statusCode < 300){
     res.send("OK");
     console.log(body.messages[0].message_id);
-    re
+    request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id, function (request, response) {
+ response.send('');
+});
   }
   else
     res.send("Error from API: " + body);
