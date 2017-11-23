@@ -68,8 +68,10 @@ request.post('https://api.messagemedia.com/v1/messages', {
     password : process.env.PASSWORD
   }
 }, function(error, response, body) {
-  if (response.statusCode < 300)
+  if (response.statusCode < 300){
     res.send("OK");
+    res.
+  }
   else
     res.send("Error from API: " + body);
 });  
