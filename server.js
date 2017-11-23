@@ -37,6 +37,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
     password : process.env.PASSWORD
   }
 }, function(error, response, body) {
+  
   if (response.statusCode < 300){
     console.log(body.messages[0].message_id);
     setTimeout(function(){
@@ -52,6 +53,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
         res.send('status :   '+response.body.status);
       });
     }, 2000);
+    
     // request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
     //   json : true,
     //   auth : {
