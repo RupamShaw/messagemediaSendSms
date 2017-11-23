@@ -72,19 +72,19 @@ request.post('https://api.messagemedia.com/v1/messages', {
     res.send("OK");
     console.log(body.messages[0].message_id);
     setTimeout(function(){
-    console.log("THIS IS");
+    console.log("THIS IS waiting for getting delivered response" );
     }, 2000);
     request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
-  json : true,
-  auth : {
-    username : process.env.USERNAME,
-    password : process.env.PASSWORD
-  }
-},function (request, response) {
-    console.log(response);
-    });
-  }
-  else
+      json : true,
+      auth : {
+        username : process.env.USERNAME,
+        password : process.env.PASSWORD
+      }
+    },function (request, response) {
+        console.log(response.body.status);
+        res.send("response.body.status");
+      });
+  }else
     res.send("Error from API: " + body);
 });  
 });
