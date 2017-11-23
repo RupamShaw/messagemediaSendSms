@@ -47,5 +47,29 @@ app.get("/", function (req, res) {
 });
 
 app.post("/sendMessages", function (req, res) {
-  var numbers = req.body.numbers.split(/[\r\n]+/g);
-  var message = req.body.message;
+var numbers = req.body.numbers.split(/[\r\n]+/g);
+var message = req.body.message;
+
+var messages = [];
+for (var n in numbers) {
+messages.push({
+  content : message,
+  destination_number : numbers[n]
+});
+}
+request.post('https://api.messagemedia.com/v1/messages', {
+  json : true,
+  body : { messages : messages },
+  auth : {
+    username : process.env.USERNAME,
+    password : process.env.PASSWORD
+  }
+}, function(error, response, body) {
+  if (response.statusCode < 300)
+    res.send("OK");
+  else
+    res.send("Error from API: " + body);
+});  
+});
+
+app.listen(process.env.PORT);
