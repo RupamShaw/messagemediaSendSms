@@ -56,8 +56,9 @@ messages.push({
   content : message,
   destination_number : numbers[n],
   callback_url: 'https://requestb.in/1d56c3n1'
-});
+  });
 }
+  
 request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
   body : { messages : messages },
