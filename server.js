@@ -72,8 +72,8 @@ request.post('https://api.messagemedia.com/v1/messages', {
     res.send("OK");
     console.log(body.messages[0].message_id);
     request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id, function (request, response) {
- response.send('');
-});
+    console.log(response);
+    });
   }
   else
     res.send("Error from API: " + body);
