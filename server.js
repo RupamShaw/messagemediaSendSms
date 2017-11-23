@@ -70,7 +70,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
 }, function(error, response, body) {
   if (response.statusCode < 300){
     res.send("OK");
-    console.log(res);
+    console.log(body);
   }
   else
     res.send("Error from API: " + body);
