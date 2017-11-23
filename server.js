@@ -3,7 +3,7 @@
 
 // init project
 var express = require('express');
-//var app = express();
+
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -41,9 +41,8 @@ request.post('https://api.messagemedia.com/v1/messages', {
     res.send("OK");
     console.log(body.messages[0].message_id);
     setTimeout(function(){
-    console.log("THIS IS waiting for getting delivered response" );
-    }, 2000);
-    request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
+      console.log("THIS IS waiting for getting submit response" );
+      request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
       json : true,
       auth : {
         username : process.env.USERNAME,
@@ -51,9 +50,11 @@ request.post('https://api.messagemedia.com/v1/messages', {
       }
     },function (request, response) {
         console.log('status: '+response.body.status);
-        res.send("response.body.status");
-        res.write("<p>Hello World</p>");
+        //res.send("response.body.status");
+        //res.write("<p>Hello </p>");
       });
+    }, 2000);
+
   }else
     res.send("Error from API: " + body);
 });  
