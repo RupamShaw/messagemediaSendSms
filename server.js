@@ -38,7 +38,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
   }
 }, function(error, response, body) {
   if (response.statusCode < 300){
-    res.send("OK");
+    //res.send("OK");
     console.log(body.messages[0].message_id);
     setTimeout(function(){
       console.log("THIS IS waiting for getting submit response" );
@@ -50,10 +50,11 @@ request.post('https://api.messagemedia.com/v1/messages', {
       }
     },function (request, response) {
         console.log('status: '+response.body.status);
-        //res.send("response.body.status");
-        //res.write("<p>Hello </p>");
+        res.send('status :   '+response.body.status);
+        //res.write("<h2>Status </h2>"+response.body.status);
       });
     }, 2000);
+  //  res.send("OK");
 
   }else
     res.send("Error from API: " + body);
