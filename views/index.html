@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Send bulk message</title>
+    </head>
+    <body>
+        <h1>Send bulk message</h1>
+        <form action="/sendMessages" method="post">
+            <label>Recipients (one number per line):</label>
+            <div><textarea name="numbers" cols="50" rows="5"></textarea></div>
+            <label>Message content:</label>
+            <div><textarea name="message" cols="50" rows="5"></textarea></div>
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>
