@@ -37,10 +37,10 @@ request.post('https://api.messagemedia.com/v1/messages', {
     password : process.env.PASSWORD
   }
 }, function(error, response, body) {
-  
+  console.log('error '+error);
   if (response.statusCode < 300){
     console.log(body.messages[0].message_id);
-    setTimeout(function(){
+   /* setTimeout(function(){
       console.log("THIS IS waiting for getting submit response" );
       request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
       json : true,
@@ -53,17 +53,17 @@ request.post('https://api.messagemedia.com/v1/messages', {
         res.send('status :   '+response.body.status);
       });
     }, 2000);
-    
-    // request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
-    //   json : true,
-    //   auth : {
-    //     username : process.env.USERNAME,
-    //     password : process.env.PASSWORD
-    //   }
-    // },function (request, response) {
-    //     console.log('status : '+response.body.status);
-    //     res.send('status :   '+response.body.status);
-    //   });
+    */
+     request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
+       json : true,
+       auth : {
+         username : process.env.USERNAME,
+         password : process.env.PASSWORD
+       }
+     },function (request, response) {
+         console.log('status : '+response.body.status);
+         res.send('status :   '+response.body.status);
+       });
   }else
     res.send("Error from API: " + body);
 });  
