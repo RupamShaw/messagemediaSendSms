@@ -6,10 +6,12 @@ var axios = require('axios');
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
-
+var cors =require('cors');
+var qs =require('qs');
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended : true }));
+app.use(cors);
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -48,7 +50,7 @@ messages.push({
         responseType: 'json', // default
         
        method: 'post',
-        data: { messages : messages }
+        data: qs.stringify({ messages : messages })
     }).then(function(response){ 
     console.log('*****response**');
     //console.log(response.data);
