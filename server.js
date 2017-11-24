@@ -50,14 +50,19 @@ messages.push({
        method: 'post',
         data: { messages : messages }
     }).then(function(response){ 
+    console.log('*****response**');
     //console.log(response.data);
-    console.log(response.status);
-    console.log(response.statusText);
-    console.log(response.headers);
-    console.log(response.config);})
-    .catch(function(error){console.log(error)});
+    //console.log(response.status);
+    //console.log(response.statusText);
+   // console.log(response.headers);
+    //console.log(response.config);
+  })
+    .catch(function(error){
+  console.log('***error****');
+      console.log(error)
+  });
   
-/*request.post('https://api.messagemedia.com/v1/messages', {
+request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
   body : { messages : messages },
   auth : {
@@ -94,7 +99,7 @@ messages.push({
   }else
     res.send("Error from API: " + body);
 });  
-*/
+
 });
 
 app.listen(process.env.PORT);
