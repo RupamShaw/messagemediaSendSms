@@ -29,11 +29,15 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
+    var credentials = btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
+  var BasicAuth = 'Basic ' + credentials;
   axios.post("https://api.messagemedia.com/v1/messages",{
         
         withCredentials: true,
+    
         headers:{
-            'Access-Control-Allow-Origin' : '*',
+    'Authorization': +BasicAuth,
+    'Access-Control-Allow-Origin' : '*',
             'Accept': 'application/json',
             "Access-Control-Allow-Credentials":"true"
         },
@@ -45,7 +49,11 @@ messages.push({
         
        method: 'post',
         data: { messages : messages }
-    }).then(function(response){ console.log(response)})
+    }).then(function(response){ console.log(response.data);
+    console.log(response.status);
+    console.log(response.statusText);
+    console.log(response.headers);
+    console.log(response.config);})
     .catch(function(error){console.log(error)});
   
 /*request.post('https://api.messagemedia.com/v1/messages', {
