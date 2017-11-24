@@ -29,8 +29,8 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
-  axios.post({
-        url: "https://api.messagemedia.com/v1/messages",
+  axios.post("https://api.messagemedia.com/v1/messages",{
+        
         withCredentials: true,
         headers:{
             'Access-Control-Allow-Origin' : '*',
@@ -43,7 +43,7 @@ messages.push({
         },
         responseType: 'json', // default
         
-        method: 'post',
+       // method: 'post',
         data: { messages : messages }
     }).then(function(response){ console.log(response)})
     .catch(function(error){console.log(error)});
