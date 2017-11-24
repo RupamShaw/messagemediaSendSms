@@ -46,7 +46,7 @@ messages.push({
         method: 'post',
         data: { messages : messages }
     }).then(function(response){ console.log(response)})
-    .catch()
+    .catch(function(error){console.log(error)});
   
 /*request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
