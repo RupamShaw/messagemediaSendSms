@@ -8,10 +8,13 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var cors =require('cors');
 var qs =require('qs');
-
+var basicAuth =require('express-basic-auth');
 var app = express();
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(cors());
+app.use(basicAuth({
+    users: { "BX6fwDQToAwiQtEGmAB4": process.env.PASSWORD }
+}))
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
