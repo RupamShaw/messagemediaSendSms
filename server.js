@@ -2,8 +2,7 @@
 // where your node app starts
 
 // init project
-var express = require('express');
-
+var axios = require('axios'); 
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
@@ -30,7 +29,24 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
-request.post('https://api.messagemedia.com/v1/messages', {
+  axios.post({
+        url: "https://api.messagemedia.com/v1/messages",
+        withCredentials: true,
+        headers:{
+            'Access-Control-Allow-Origin' : '*',
+            'Accept': 'application/json',
+            "Access-Control-Allow-Credentials":"true"
+        },
+        auth: {
+          username: "BX6fwDQToAwiQtEGmAB4",
+          password: "zhdRDol9A9Wlzwy1SqkESWRMtuHUpL"
+        },
+        responseType: 'json', // default
+        
+        method: 'post',
+        data: { messages : messages }
+    })
+/*request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
   body : { messages : messages },
   auth : {
@@ -40,21 +56,21 @@ request.post('https://api.messagemedia.com/v1/messages', {
   console.log(body);
   if (response.statusCode < 300){
     console.log(body.messages[0].message_id);
-   /* setTimeout(function(){
-      console.log("THIS IS waiting for getting submit response" );
+//   setTimeout(function(){
+//       console.log("THIS IS waiting for getting submit response" );
+//       request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
+//       json : true,
+//       auth : {
+//         username : process.env.USERNAME,
+//         password : process.env.PASSWORD
+//       }
+//     },function (request, response) {
+//         console.log('status: '+response.body.status);
+//         res.send('status :   '+response.body.status);
+//       });
+//     }, 2000);
+   
       request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
-      json : true,
-      auth : {
-        username : process.env.USERNAME,
-        password : process.env.PASSWORD
-      }
-    },function (request, response) {
-        console.log('status: '+response.body.status);
-        res.send('status :   '+response.body.status);
-      });
-    }, 2000);
-    */
-     request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
        json : true,
        auth : {
          username : process.env.USERNAME,
@@ -67,6 +83,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
   }else
     res.send("Error from API: " + body);
 });  
+*/
 });
 
 app.listen(process.env.PORT);
