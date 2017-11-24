@@ -24,7 +24,7 @@ for (var n in numbers) {
 messages.push({
   content : message,
   destination_number : numbers[n],
-  callback_url: 'https://requestb.in/1d56c3n1'
+  callback_url: 'https://requestb.in/vl2apgvl'
   
   });
 }
@@ -33,11 +33,10 @@ request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
   body : { messages : messages },
   auth : {
-    username : process.env.USERNAME,
-    password : process.env.PASSWORD
+    username : process.env.USERNAME,    password : process.env.PASSWORD
   }
 }, function(error, response, body) {
-  console.log('error '+error);
+  console.log('error '+error +"messages"+body.messages[0].message_id);
   if (response.statusCode < 300){
     console.log(body.messages[0].message_id);
    /* setTimeout(function(){
