@@ -86,7 +86,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
 //       });
 //     }, 2000);
    
-      request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
+      /*request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
        json : true,
        auth : {
          username : process.env.USERNAME,
@@ -95,7 +95,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
      },function (request, response) {
          console.log('status : '+response.body.status);
          res.send('status :   '+response.body.status);
-       });
+       });*/
   }else
     res.send("Error from API: " + body);
 });  
