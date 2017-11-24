@@ -28,7 +28,8 @@ messages.push({
   
   });
 }
-  
+  console.log("*********messages");
+  console.log(messages);
 request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
   body : { messages : messages },
@@ -36,7 +37,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
     username : process.env.USERNAME,    password : process.env.PASSWORD
   }
 }, function(error, response, body) {
-  console.log('error '+error +"messages"+body.messages[0].message_id);
+  console.log(body);
   if (response.statusCode < 300){
     console.log(body.messages[0].message_id);
    /* setTimeout(function(){
