@@ -50,6 +50,7 @@ messages.push({
         withCredentials: true,
     
         headers:{
+          'X-Requested-With': 'XMLHttpRequest',
     'Authorization': +BasicAuth,
           'Content-Type':'application/x-www-form-urlencoded',
     'Access-Control-Allow-Origin' : '*',
