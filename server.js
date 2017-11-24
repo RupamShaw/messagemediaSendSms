@@ -34,13 +34,7 @@ messages.push({
   axios.post("https://api.messagemedia.com/v1/messages",{
         
         withCredentials: true,
-    
-        headers:{
-    //'Authorization': +BasicAuth,
-    'Access-Control-Allow-Origin' : '*',
-            'Accept': 'application/json',
-            "Access-Control-Allow-Credentials":"true"
-        },
+  
         auth: {
           username: "BX6fwDQToAwiQtEGmAB4",
           password: "zhdRDol9A9Wlzwy1SqkESWRMtuHUpL"
