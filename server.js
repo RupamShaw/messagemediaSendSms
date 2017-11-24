@@ -40,7 +40,9 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
-  //   var credentials =  ("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
+     var credentials =  window.btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
+  let encrypted = credentials.toString('base64');
+let BasicAuth = 'Basic ' + encrypted;
   // var BasicAuth = 'Basic ' + credentials;
   axios.post("https://api.messagemedia.com/v1/messages",{
         
