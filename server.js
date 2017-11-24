@@ -45,17 +45,17 @@ messages.push({
   let encrypted = credentials.toString('base64');
   let BasicAuth = 'Basic ' + encrypted;
   // var BasicAuth = 'Basic ' + credentials;
-  axios.post("https://api.messagemedia.com/v1/messages",{
+  axios.post("https://api.messagemedia.com/v1/messages",qs.stringify({
         
         withCredentials: true,
     
         headers:{
           'X-Requested-With': 'XMLHttpRequest',
     'Authorization': +BasicAuth,
-          'Content-Type':'application/x-www-form-urlencoded',
-    'Access-Control-Allow-Origin' : '*',
-            'Accept': 'application/json',
-            "Access-Control-Allow-Credentials":"true"
+    //       'Content-Type':'application/x-www-form-urlencoded',
+    // 'Access-Control-Allow-Origin' : '*',
+    //         'Accept': 'application/json',
+    //         "Access-Control-Allow-Credentials":"true"
         },
         // auth: {
         //   username: "BX6fwDQToAwiQtEGmAB4",
@@ -64,9 +64,9 @@ messages.push({
         responseType: 'json', // default
         
        method: 'post',
-        data: JSON.stringify({ messages : messages }),
+        data: { messages : messages },
        // params:{ messages : messages }
-    }).then(function(response){ 
+    })).then(function(response){ 
     console.log('*****response**');
     //console.log(response.data);
     //console.log(response.status);
