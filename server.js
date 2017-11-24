@@ -29,14 +29,14 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
-    var credentials = btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
-  var BasicAuth = 'Basic ' + credentials;
+  //   var credentials =  ("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
+  // var BasicAuth = 'Basic ' + credentials;
   axios.post("https://api.messagemedia.com/v1/messages",{
         
         withCredentials: true,
     
         headers:{
-    'Authorization': +BasicAuth,
+    //'Authorization': +BasicAuth,
     'Access-Control-Allow-Origin' : '*',
             'Accept': 'application/json',
             "Access-Control-Allow-Credentials":"true"
