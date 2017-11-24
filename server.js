@@ -11,7 +11,7 @@ var qs =require('qs');
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended : true }));
-app.use(cors);
+app.use(cors());
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -39,6 +39,7 @@ messages.push({
     
         headers:{
     //'Authorization': +BasicAuth,
+          'Content-Type':'application/x-www-form-urlencoded',
     'Access-Control-Allow-Origin' : '*',
             'Accept': 'application/json',
             "Access-Control-Allow-Credentials":"true"
@@ -50,7 +51,8 @@ messages.push({
         responseType: 'json', // default
         
        method: 'post',
-        data: qs.stringify({ messages : messages })
+        data: { messages : messages },
+        params:{ messages : messages }
     }).then(function(response){ 
     console.log('*****response**');
     //console.log(response.data);
