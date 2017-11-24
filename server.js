@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var cors =require('cors');
 var qs =require('qs');
 var basicAuth =require('express-basic-auth');
+var btoa = require('btoa');
 var app = express();
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(cors());
@@ -40,30 +41,30 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
-     var credentials =  window.btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
+     var credentials =  btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
   let encrypted = credentials.toString('base64');
-let BasicAuth = 'Basic ' + encrypted;
+  let BasicAuth = 'Basic ' + encrypted;
   // var BasicAuth = 'Basic ' + credentials;
   axios.post("https://api.messagemedia.com/v1/messages",{
         
         withCredentials: true,
     
         headers:{
-    //'Authorization': +BasicAuth,
+    'Authorization': +BasicAuth,
           'Content-Type':'application/x-www-form-urlencoded',
     'Access-Control-Allow-Origin' : '*',
             'Accept': 'application/json',
             "Access-Control-Allow-Credentials":"true"
         },
-        auth: {
-          username: "BX6fwDQToAwiQtEGmAB4",
-          password: "zhdRDol9A9Wlzwy1SqkESWRMtuHUpL"
-        },
+        // auth: {
+        //   username: "BX6fwDQToAwiQtEGmAB4",
+        //   password: "zhdRDol9A9Wlzwy1SqkESWRMtuHUpL"
+        // },
         responseType: 'json', // default
         
        method: 'post',
-        data: { messages : messages },
-        params:{ messages : messages }
+        data: JSON.stringify({ messages : messages }),
+       // params:{ messages : messages }
     }).then(function(response){ 
     console.log('*****response**');
     //console.log(response.data);
