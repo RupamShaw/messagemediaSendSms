@@ -12,9 +12,15 @@ var basicAuth =require('express-basic-auth');
 var app = express();
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(cors());
-app.use(basicAuth({
-    users: { "BX6fwDQToAwiQtEGmAB4": process.env.PASSWORD }
-}))
+// app.use(basicAuth({
+//     users: { "BX6fwDQToAwiQtEGmAB4": process.env.PASSWORD },
+//   unauthorizedResponse: getUnauthorizedResponse
+// }))
+// function getUnauthorizedResponse(req) {
+//     return req.auth ?
+//         ('Credentials ' + req.auth.user + ':' + req.auth.password + ' rejected') :
+//         'No credentials provided'
+// }
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
