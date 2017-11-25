@@ -45,7 +45,7 @@ messages.push({
   let encrypted = credentials.toString('base64');
   let BasicAuth = 'Basic ' + encrypted;
   // var BasicAuth = 'Basic ' + credentials;
-  axios.post("https://api.messagemedia.com/v1/messages",qs.stringify({
+  /*axios.post("https://api.messagemedia.com/v1/messages",qs.stringify({
         
         withCredentials: true,
     
@@ -78,7 +78,7 @@ messages.push({
   console.log('***error****');
       console.log(error)
   });
-  
+  */
   
 request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
