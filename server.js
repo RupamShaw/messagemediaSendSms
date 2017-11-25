@@ -87,7 +87,9 @@ request.post('https://api.messagemedia.com/v1/messages', {
     username : process.env.USERNAME,    password : process.env.PASSWORD
   }
 }, function(error, response, body) {
-  console.log(body);
+  res.send('status :   '+response.body.status);
+  console.log(error);
+  console.log(response);
   if (response.statusCode < 300){
     console.log(body.messages[0].message_id);
 //   setTimeout(function(){
