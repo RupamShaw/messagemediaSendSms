@@ -41,7 +41,7 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
- /*    var credentials =  btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
+     var credentials =  btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
   let encrypted = credentials.toString('base64');
   let BasicAuth = 'Basic ' + encrypted;
   // var BasicAuth = 'Basic ' + credentials;
@@ -77,7 +77,8 @@ messages.push({
     .catch(function(error){
   console.log('***error****');
       console.log(error)
-  });*/
+  });
+  
   
 request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
@@ -93,10 +94,10 @@ request.post('https://api.messagemedia.com/v1/messages', {
 //       console.log("THIS IS waiting for getting submit response" );
 //       request.get('https://api.messagemedia.com/v1/messages/'+body.messages[0].message_id,  {
 //       json : true,
-      auth : {
-        username : process.env.USERNAME,
-        password : process.env.PASSWORD
-      }
+//      auth : {
+//        username : process.env.USERNAME,
+//        password : process.env.PASSWORD
+//      }
 //     },function (request, response) {
 //         console.log('status: '+response.body.status);
 //         res.send('status :   '+response.body.status);
