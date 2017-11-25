@@ -41,7 +41,7 @@ messages.push({
 }
   console.log("*********messages");
   console.log(messages);
-     var credentials =  btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
+ /*    var credentials =  btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
   let encrypted = credentials.toString('base64');
   let BasicAuth = 'Basic ' + encrypted;
   // var BasicAuth = 'Basic ' + credentials;
@@ -77,8 +77,8 @@ messages.push({
     .catch(function(error){
   console.log('***error****');
       console.log(error)
-  });
-  /*
+  });*/
+  
 request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
   body : { messages : messages },
@@ -115,7 +115,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
      //   });
   }else
     res.send("Error from API: " + body);
-});  */
+});  
 
 });
 
