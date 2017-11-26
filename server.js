@@ -55,9 +55,9 @@ messages.push({
           'X-Requested-With': 'XMLHttpRequest',
     'Authorization': `Basic ${hash}`,
           'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin' : '*',
-            'Accept': 'application/json',
-            "Access-Control-Allow-Credentials":"true"
+    // 'Access-Control-Allow-Origin' : '*',
+    //         'Accept': 'application/json',
+    //         "Access-Control-Allow-Credentials":"true"
         },
         auth: {
           username: "BX6fwDQToAwiQtEGmAB4",
