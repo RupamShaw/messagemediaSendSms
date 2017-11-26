@@ -44,7 +44,7 @@ messages.push({
      var credentials =  btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
   let encrypted = credentials.toString('base64');
   let BasicAuth = 'Basic ' + encrypted;
-  
+   
   const hash = new Buffer(`${process.env.USERNAME}:${process.env.PASSWORD}`).toString('base64')
   // var BasicAuth = 'Basic ' + credentials;
   axios.post("https://api.messagemedia.com/v1/messages",{
@@ -54,18 +54,18 @@ messages.push({
         headers:{
           'X-Requested-With': 'XMLHttpRequest',
     'Authorization': `Basic ${hash}`,
-    //       'Content-Type':'application/x-www-form-urlencoded',
-    // 'Access-Control-Allow-Origin' : '*',
-    //         'Accept': 'application/json',
-    //         "Access-Control-Allow-Credentials":"true"
+          'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin' : '*',
+            'Accept': 'application/json',
+            "Access-Control-Allow-Credentials":"true"
         },
-        // auth: {
-        //   username: "BX6fwDQToAwiQtEGmAB4",
-        //   password: "zhdRDol9A9Wlzwy1SqkESWRMtuHUpL"
-        // },
+        auth: {
+          username: "BX6fwDQToAwiQtEGmAB4",
+          password: "zhdRDol9A9Wlzwy1SqkESWRMtuHUpL"
+        },
         responseType: 'json', // default
         
-       method: 'post',
+      // method: 'post',
         data: { messages : messages },
        // params:{ messages : messages }
     }).then(function(response){ 
