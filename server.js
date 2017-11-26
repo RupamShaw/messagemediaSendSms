@@ -44,6 +44,8 @@ messages.push({
      var credentials =  btoa("BX6fwDQToAwiQtEGmAB4" + ':' +"zhdRDol9A9Wlzwy1SqkESWRMtuHUpL" );
   let encrypted = credentials.toString('base64');
   let BasicAuth = 'Basic ' + encrypted;
+  
+  const hash = new Buffer(`${process.env.USERNAME}:${process.env.PASSWORD}`).toString('base64')
   // var BasicAuth = 'Basic ' + credentials;
   /*axios.post("https://api.messagemedia.com/v1/messages",qs.stringify({
         
