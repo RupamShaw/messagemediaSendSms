@@ -35,7 +35,7 @@ for (var n in numbers) {
 messages.push({
   content : message,
   destination_number : numbers[n],
-  callback_url: 'https://requestb.in/vl2apgvl'
+  callback_url: 'https://requestb.in/18hajq61'
   
   });
 }
@@ -47,13 +47,13 @@ messages.push({
   
   const hash = new Buffer(`${process.env.USERNAME}:${process.env.PASSWORD}`).toString('base64')
   // var BasicAuth = 'Basic ' + credentials;
-  /*axios.post("https://api.messagemedia.com/v1/messages",qs.stringify({
+  axios.post("https://api.messagemedia.com/v1/messages",{
         
-        withCredentials: true,
+    //    withCredentials: true,
     
         headers:{
           'X-Requested-With': 'XMLHttpRequest',
-    'Authorization': +BasicAuth,
+    'Authorization': `Basic ${hash}`,
     //       'Content-Type':'application/x-www-form-urlencoded',
     // 'Access-Control-Allow-Origin' : '*',
     //         'Accept': 'application/json',
@@ -68,7 +68,7 @@ messages.push({
        method: 'post',
         data: { messages : messages },
        // params:{ messages : messages }
-    })).then(function(response){ 
+    }).then(function(response){ 
     console.log('*****response**');
     //console.log(response.data);
     //console.log(response.status);
@@ -80,9 +80,9 @@ messages.push({
   console.log('***error****');
       console.log(error)
   });
-  */
+ 
   
-request.post('https://api.messagemedia.com/v1/messages', {
+/*request.post('https://api.messagemedia.com/v1/messages', {
   json : true,
   body : { messages : messages },
   auth : {
@@ -120,7 +120,7 @@ request.post('https://api.messagemedia.com/v1/messages', {
      //   });
   }else
     res.send("Error from API: " + body);
-});  
+});*/  
 
 });
 
