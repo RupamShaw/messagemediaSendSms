@@ -1,5 +1,8 @@
 // server.js
 // where your node app starts
+//var qs =require('qs');
+//var basicAuth =require('express-basic-auth');
+//var btoa = require('btoa');
 
 // init project
 var axios = require('axios'); 
@@ -7,23 +10,9 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
 var cors =require('cors');
-var qs =require('qs');
-var basicAuth =require('express-basic-auth');
-var btoa = require('btoa');
 var app = express();
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(cors());
-
-
-// app.use(basicAuth({
-//     users: { "BX6fwDQToAwiQtEGmAB4": process.env.PASSWORD },
-//   unauthorizedResponse: getUnauthorizedResponse
-// }))
-// function getUnauthorizedResponse(req) {
-//     return req.auth ?
-//         ('Credentials ' + req.auth.user + ':' + req.auth.password + ' rejected') :
-//         'No credentials provided'
-// }
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -136,5 +125,13 @@ request.post('https://api.messagemedia.com/v1/messages', {
 });*/  
 
 });
-
+// app.use(basicAuth({
+//     users: { "BX6fwDQToAwiQtEGmAB4": process.env.PASSWORD },
+//   unauthorizedResponse: getUnauthorizedResponse
+// }))
+// function getUnauthorizedResponse(req) {
+//     return req.auth ?
+//         ('Credentials ' + req.auth.user + ':' + req.auth.password + ' rejected') :
+//         'No credentials provided'
+// }
 app.listen(process.env.PORT);
